@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.ring {
+  transform-style: preserve-3d;
+}
+
+.ring img {
+  backface-visibility: hidden;
+}

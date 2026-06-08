@@ -1,0 +1,52 @@
+import { useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function useVideoHeroAnimation(
+  sectionRef,
+  videoRef,
+  overlayRef,
+  heroRef,
+) {
+  useLayoutEffect(() => {
+  gsap.set(heroRef.current, {
+    opacity: 0,
+    y: 100,
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+    },
+  });
+
+  tl.to(videoRef.current, {
+    scale: 2.2,
+    filter: "blur(25px)",
+    ease: "none",
+  })
+
+  .to(
+    overlayRef.current,
+    {
+      opacity: 0.9,
+    },
+    0.4
+  )
+
+  .to(
+    heroRef.current,
+    {
+      opacity: 1,
+      y: 0,
+    },
+    0.75
+  );
+
+}, []);
+}
