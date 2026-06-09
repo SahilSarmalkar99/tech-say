@@ -1,77 +1,74 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 
-const positions = [
-  {
-    x: -520,
-    rotateY: 28,
-    scale: 0.9,
-    zIndex: 1,
-  },
-
-  {
-    x: -340,
-    rotateY: 18,
-    scale: 0.95,
-    zIndex: 2,
-  },
-
-  {
-    x: -170,
-    rotateY: 10,
-    scale: 0.98,
-    zIndex: 3,
-  },
-
-  {
-    x: 0,
-    rotateY: 0,
-    scale: 1,
-    zIndex: 4,
-  },
-
-  {
-    x: 170,
-    rotateY: -10,
-    scale: 0.98,
-    zIndex: 3,
-  },
-
-  {
-    x: 340,
-    rotateY: -18,
-    scale: 0.95,
-    zIndex: 2,
-  },
-
-  {
-    x: 520,
-    rotateY: -28,
-    scale: 0.9,
-    zIndex: 1,
-  },
-];
-
-export default function useCoverflowCarousel(cardsRef) {
-  useLayoutEffect(() => {
+const useCarousel = (cardsRef) => {
+  useEffect(() => {
     const cards = cardsRef.current;
 
-    cards.forEach((card, index) => {
-      gsap.set(card, positions[index]);
-    });
+    if (!cards.length) return;
 
-    const interval = setInterval(() => {
-      positions.unshift(positions.pop());
+    const total = cards.length;
+    let offset = 0;
+    let frameId;
 
-      cards.forEach((card, index) => {
-        gsap.to(card, {
-          ...positions[index],
-          duration: 1.2,
-          ease: "power3.inOut",
+    const animate = () => {
+      cards.forEach((card, i) => {
+        let progress = ((i + offset) % total) / total;
+
+        const angle = gsap.utils.mapRange(
+          0,
+          1,
+          -1.1,
+          1.1,
+          progress
+        );
+
+        const radiusX = 900;
+        const radiusZ = 2500;
+
+        const x = Math.sin(angle) * radiusX;
+
+        const z =
+          -(Math.cos(angle) * radiusZ - radiusZ);
+
+        const rotateY = -angle * 35;
+
+        const scale =
+          0.7 +
+          ((Math.cos(angle) + 1) / 2) * 0.4;
+
+        const opacity =
+          0.4 +
+          ((Math.cos(angle) + 1) / 2) * 0.6;
+
+        gsap.set(card, {
+          xPercent: -50,
+          yPercent: -50,
+
+          x,
+          y: Math.abs(angle),
+
+          z,
+
+          rotateY,
+
+          scale,
+
+          opacity,
+
+          zIndex: Math.floor(scale * 100),
         });
       });
-    }, 3000);
 
-    return () => clearInterval(interval);
-  }, []);
-}
+      offset += 0.003;
+
+      frameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => cancelAnimationFrame(frameId);
+  }, [cardsRef]);
+};
+
+export default useCarousel;

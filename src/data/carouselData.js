@@ -1,9 +1,19 @@
-export const projects = [
-  "https://media.istockphoto.com/id/1175691444/vector/statistics-data-and-analytics-software-laptop-application.jpg?s=612x612&w=0&k=20&c=6pUa7C7G71P7bFJMctdJJM6Ynw2ZHo3C37NRAFNIjZU=",
-  "/images/2.jpg",
-  "/images/3.jpg",
-  "/images/4.jpg",
-  "/images/5.jpg",
-  "/images/6.jpg",
-  "/images/7.jpg",
-];  
+import img1 from "../assets/carousal/img1.jpg";
+import img2 from "../assets/carousal/img2.jpg";
+import img3 from "../assets/carousal/img3.jpg";
+import img4 from "../assets/carousal/img4.jpg";
+import img5 from "../assets/carousal/img5.jpg";
+import img6 from "../assets/carousal/img6.jpg";
+import img7 from "../assets/carousal/img7.jpg";
+import img8 from "../assets/carousal/img8.jpg";
+
+export const carouselImages = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+];
