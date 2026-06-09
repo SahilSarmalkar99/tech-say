@@ -4,6 +4,10 @@ import VideoIntro from "../components/home/VideoIntro";
 import Hero from "../components/home/Hero";
 
 import useVideoHeroAnimation from "../hooks/useVideoHeroAnimation";
+import TrustedBrand from "../components/home/TrustedBrand";
+import WorkResults from "../components/home/WorkResults";
+import ContentSection from "../components/home/ContentSection";
+import BrandingSection from "../components/home/BrandingSection";
 
 export default function Home() {
   const sectionRef = useRef(null);
@@ -23,11 +27,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen bg-zinc-950">
-        <div className="max-w-7xl mx-auto py-32">
-          <h2 className="text-white text-7xl font-black">Projects</h2>
-        </div>
-      </section>
+      <TrustedBrand />
+      <WorkResults />
+      <ContentSection />
+      <BrandingSection />
     </>
   );
 }

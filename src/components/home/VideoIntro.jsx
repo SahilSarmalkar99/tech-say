@@ -51,7 +51,7 @@ const VideoIntro = ({
           bg-gradient-to-b
           from-transparent
           via-[#251437]/40
-          to-[#2f1d43]
+          to-[#51385F]
           "
         />
       </div>

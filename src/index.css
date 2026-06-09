@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body{
+  background-color: #51385F;
+}
+
 .ring {
   transform-style: preserve-3d;
 }
