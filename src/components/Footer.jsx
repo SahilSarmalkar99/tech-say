@@ -1,9 +1,10 @@
+import { ArrowUpRight } from "lucide-react";
+
 import {
-  ArrowUpRight,
-  Instagram,
-  Linkedin,
-  Facebook,
-} from "lucide-react";
+  FaInstagram,
+  FaLinkedinIn,
+  FaFacebookF,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -116,21 +117,21 @@ export default function Footer() {
               href="#"
               className="h-10 w-10 border border-white/20 rounded flex items-center justify-center"
             >
-              <Instagram size={18} />
+              <FaInstagram size={18} />
             </a>
 
             <a
               href="#"
               className="h-10 w-10 border border-white/20 rounded flex items-center justify-center"
             >
-              <Linkedin size={18} />
+              <FaLinkedinIn size={18} />
             </a>
 
             <a
               href="#"
               className="h-10 w-10 border border-white/20 rounded flex items-center justify-center"
             >
-              <Facebook size={18} />
+              <FaFacebookF size={18} />
             </a>
           </div>
 
