@@ -4,6 +4,7 @@ import Work from './pages/Work'
 import Project from './pages/Project'
 import Team from './pages/Team'
 import Contact from './pages/Contact'
+import VideoCoverflow from "./components/home/VideoCoverflow"
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       {/* <Work /> */}
       {/* <Project /> */}
       {/* <Team /> */}
-      <Contact />
+      {/* <Contact /> */}
+      <VideoCoverflow />
     </div>
   )
 }
