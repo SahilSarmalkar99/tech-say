@@ -10,6 +10,8 @@ import ContentSection from "../components/home/ContentSection";
 import BrandingSection from "../components/home/BrandingSection";
 import Testimonial from "../components/home/Testimonail";
 import Footer from "../components/Footer";
+import VideoCoverflow from "../components/home/VideoCoverflow";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const sectionRef = useRef(null);
@@ -33,6 +35,7 @@ export default function Home() {
       <WorkResults />
       <ContentSection />
       <BrandingSection />
+      <VideoCoverflow />
       <Testimonial />
       <Footer />
     </>

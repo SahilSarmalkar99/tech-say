@@ -4,10 +4,12 @@ import AboutStory from '../components/team/AboutStory'
 import TeamSection from '../components/team/TeamMember'
 import {teams} from "../data/teamMembers"
 import CommonFooter from '../components/CommonFooter'
+import Navbar from '../components/Navbar'
 
 const Team = () => {
   return (
     <div>
+      <Navbar />
         <TeamHero />
         <AboutStory />
 
