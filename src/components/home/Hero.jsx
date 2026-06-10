@@ -1,4 +1,4 @@
-import CoverflowCarousel from "./CoverflowCarousel";
+import CoverflowCarousel from "./CoverFlowCarousel";
 
 export default function Hero({ heroRef }) {
   return (
