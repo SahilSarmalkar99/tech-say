@@ -14,15 +14,14 @@ function App() {
     <BrowserRouter>
     <ScrollToTop />
 
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
           <Route path="/project" element={<Project />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
-        </Routes> */}
+        </Routes>
 
-        <Home />
     </BrowserRouter>
   );
 }
