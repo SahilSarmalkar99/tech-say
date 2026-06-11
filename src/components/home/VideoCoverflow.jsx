@@ -32,45 +32,11 @@ export default function VideoCoverflow() {
   };
 
   const slots = [
-    {
-      x: -700,
-      scale: 0.6,
-      rotateY: 40,
-      opacity: 0.2,
-      zIndex: 10,
-    },
-
-    {
-      x: -350,
-      scale: 0.82,
-      rotateY: 25,
-      opacity: 0.8,
-      zIndex: 20,
-    },
-
-    {
-      x: 0,
-      scale: 1,
-      rotateY: 0,
-      opacity: 1,
-      zIndex: 50,
-    },
-
-    {
-      x: 350,
-      scale: 0.82,
-      rotateY: -25,
-      opacity: 0.8,
-      zIndex: 20,
-    },
-
-    {
-      x: 700,
-      scale: 0.6,
-      rotateY: -40,
-      opacity: 0.2,
-      zIndex: 10,
-    },
+    { x: -550, scale: 0.65, rotateY: 35, opacity: 0.25, zIndex: 10 },
+    { x: -280, scale: 0.85, rotateY: 20, opacity: 0.8, zIndex: 20 },
+    { x: 0, scale: 1, rotateY: 0, opacity: 1, zIndex: 50 },
+    { x: 280, scale: 0.85, rotateY: -20, opacity: 0.8, zIndex: 20 },
+    { x: 550, scale: 0.65, rotateY: -35, opacity: 0.25, zIndex: 10 },
   ];
 
   return (
@@ -78,7 +44,6 @@ export default function VideoCoverflow() {
       className="
       relative
       min-h-screen
-      bg-[#12081f]
       overflow-hidden
       flex
       items-center
@@ -93,10 +58,35 @@ export default function VideoCoverflow() {
         w-[900px]
         h-[900px]
         rounded-full
-        bg-purple-700/20
         blur-[180px]
       "
       />
+
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 z-50 text-center">
+        <h2
+          className="
+      text-4xl
+      md:text-6xl
+      font-bold
+      text-white
+      mb-4
+    "
+        >
+          Featured Work
+        </h2>
+
+        <p
+          className="
+      text-white/70
+      text-sm
+      md:text-lg
+      max-w-xl
+      mx-auto
+    "
+        >
+          Explore our latest projects, campaigns, and creative productions.
+        </p>
+      </div>
 
       {/* Carousel */}
 
@@ -106,15 +96,14 @@ export default function VideoCoverflow() {
         w-full
         h-[700px]
         perspective-[2500px]
+        mt-40
+    md:mt-48
       "
       >
         {items.map((item, index) => {
           const slot = slots[index];
 
-          const shouldPlay =
-            index === 1 ||
-            index === 2 ||
-            index === 3;
+          const shouldPlay = index === 1 || index === 2 || index === 3;
 
           return (
             <motion.div
@@ -146,15 +135,12 @@ export default function VideoCoverflow() {
                   overflow-hidden
                   rounded-[32px]
                   bg-black
-                  shadow-[0_30px_100px_rgba(0,0,0,.5)]
                   w-[180px]
                   h-[320px]
                   sm:w-[220px]
                   sm:h-[400px]
                   md:w-[280px]
                   md:h-[520px]
-                  lg:w-[340px]
-                  lg:h-[620px]
                 "
               >
                 <video
@@ -167,7 +153,7 @@ export default function VideoCoverflow() {
                 />
 
                 {index !== 2 && (
-                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute inset-0 " />
                 )}
               </div>
             </motion.div>

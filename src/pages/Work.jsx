@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 const Work = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar visible={true}/>
         <WorkHero />
         <WorkShowcase />
     </div>

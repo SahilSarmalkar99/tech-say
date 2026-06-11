@@ -9,7 +9,7 @@ import Navbar from '../components/Navbar'
 const Team = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar  visible = {true}/>
         <TeamHero />
         <AboutStory />
 

@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 const Contact = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar visible={true} />
         <ContactHero />
         <ContactSection />
         <CommonFooter />

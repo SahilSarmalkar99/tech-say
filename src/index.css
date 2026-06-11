@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 
 body{
@@ -10,4 +11,19 @@ body{
 
 .ring img {
   backface-visibility: hidden;
+}
+
+:root {
+  --heading-font: "Playfair Display", serif;
+  --body-font: "Inter", sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--heading-font);
+  font-weight: 700;
+}
+
+body,p,span,li,a{
+  font-family: var(--body-font);
+  font-weight: 400;
 }

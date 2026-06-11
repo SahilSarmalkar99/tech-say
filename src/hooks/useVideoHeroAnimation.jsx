@@ -11,42 +11,49 @@ export default function useVideoHeroAnimation(
   heroRef,
 ) {
   useLayoutEffect(() => {
-  gsap.set(heroRef.current, {
-    opacity: 0,
-    y: 100,
-  });
+    gsap.set(heroRef.current, {
+      opacity: 0,
+      y: 100,
+    });
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: sectionRef.current,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-    },
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
 
-  tl.to(videoRef.current, {
-    scale: 2.2,
-    filter: "blur(25px)",
-    ease: "none",
-  })
+    tl.to(videoRef.current, {
+      scale: 2.2,
+      filter: "blur(25px)",
+      ease: "none",
+    })
 
-  .to(
-    overlayRef.current,
-    {
-      opacity: 0.9,
-    },
-    0.4
-  )
+      .to(
+        overlayRef.current,
+        {
+          opacity: 0.9,
+        },
+        0.4,
+      )
 
-  .to(
-    heroRef.current,
-    {
-      opacity: 1,
-      y: 0,
-    },
-    0.75
-  );
+      .to(
+        heroRef.current,
+        {
+          opacity: 1,
+          y: 0,
 
-}, []);
+          onStart: () => {
+            setShowNavbar(true);
+          },
+
+          onReverseComplete: () => {
+            setShowNavbar(false);
+          },
+        },
+        0.75,
+      );
+  }, []);
 }

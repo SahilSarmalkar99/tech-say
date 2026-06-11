@@ -1,17 +1,19 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import VideoIntro from "../components/home/VideoIntro";
 import Hero from "../components/home/Hero";
 
 import useVideoHeroAnimation from "../hooks/useVideoHeroAnimation";
+
 import TrustedBrand from "../components/home/TrustedBrand";
 import WorkResults from "../components/home/WorkResults";
 import ContentSection from "../components/home/ContentSection";
 import BrandingSection from "../components/home/BrandingSection";
 import Testimonial from "../components/home/Testimonail";
-import Footer from "../components/Footer";
 import VideoCoverflow from "../components/home/VideoCoverflow";
+
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const sectionRef = useRef(null);
@@ -19,13 +21,45 @@ export default function Home() {
   const overlayRef = useRef(null);
   const heroRef = useRef(null);
 
-  useVideoHeroAnimation(sectionRef, videoRef, overlayRef, heroRef);
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useVideoHeroAnimation(
+    sectionRef,
+    videoRef,
+    overlayRef,
+    heroRef,
+    
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Adjust this value until navbar appears
+      // exactly when Hero becomes visible
+      setShowNavbar(window.scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () =>
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+  }, []);
 
   return (
     <>
-      <section ref={sectionRef} className="relative h-[200vh]">
+      <Navbar visible={showNavbar} />
+
+      <section
+        ref={sectionRef}
+        className="relative h-[200vh]"
+      >
         <div className="sticky top-0 h-screen overflow-hidden">
-          <VideoIntro videoRef={videoRef} overlayRef={overlayRef} />
+          <VideoIntro
+            videoRef={videoRef}
+            overlayRef={overlayRef}
+          />
 
           <Hero heroRef={heroRef} />
         </div>

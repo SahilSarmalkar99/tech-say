@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 const Project = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar visible = {true}/>
         <ProjectHero />
         <ProcessSection />
         <ResultsSection />
