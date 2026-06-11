@@ -3,50 +3,155 @@ export const workData = {
     {
       id: 1,
       title: "Ad Films",
-      image: "/work/adfilm.jpg",
+      image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "large",
     },
     {
       id: 2,
       title: "YouTube Videos",
-      image: "/work/youtube.jpg",
+      image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "large",
     },
     {
       id: 3,
       title: "UGC",
-      image: "/work/ugc1.jpg",
+      image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "small",
     },
     {
       id: 4,
       title: "UGC",
-      image: "/work/ugc2.jpg",
+      image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "small",
     },
     {
       id: 5,
       title: "UGC",
-      image: "/work/ugc3.jpg",
+      image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "small",
     },
     {
       id: 6,
       title: "UGC",
-      image: "/work/ugc4.jpg",
+      image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "small",
     },
   ],
 
   Graphics: [
-    // graphics cards
+    {
+      id: 1,
+      title: "Ad Films",
+      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      type: "large",
+    },
+    {
+      id: 2,
+      title: "YouTube Videos",
+      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      type: "large",
+    },
+    {
+      id: 3,
+      title: "UGC",
+      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      type: "small",
+    },
+    {
+      id: 4,
+      title: "UGC",
+      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      type: "small",
+    },
+    {
+      id: 5,
+      title: "UGC",
+      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      type: "small",
+    },
+    {
+      id: 6,
+      title: "UGC",
+      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      type: "small",
+    },
   ],
 
   Website: [
-    // website cards
+    {
+      id: 1,
+      title: "Ad Films",
+      image: "https://i.pinimg.com/736x/90/57/9d/90579d128a28712729e494d62eeed52b.jpg",
+      type: "large",
+    },
+    {
+      id: 2,
+      title: "YouTube Videos",
+      image: "https://i.pinimg.com/736x/90/57/9d/90579d128a28712729e494d62eeed52b.jpg",
+      type: "large",
+    },
+    {
+      id: 3,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/90/57/9d/90579d128a28712729e494d62eeed52b.jpg",
+      type: "small",
+    },
+    {
+      id: 4,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/90/57/9d/90579d128a28712729e494d62eeed52b.jpg",
+      type: "small",
+    },
+    {
+      id: 5,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/90/57/9d/90579d128a28712729e494d62eeed52b.jpg",
+      type: "small",
+    },
+    {
+      id: 6,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/90/57/9d/90579d128a28712729e494d62eeed52b.jpg",
+      type: "small",
+    },
   ],
 
   "Case Study": [
-    // case study cards
+    {
+      id: 1,
+      title: "Ad Films",
+      image: "https://i.pinimg.com/736x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+      type: "large",
+    },
+    {
+      id: 2,
+      title: "YouTube Videos",
+      image: "https://i.pinimg.com/736x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+      type: "large",
+    },
+    {
+      id: 3,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+      type: "small",
+    },
+    {
+      id: 4,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+      type: "small",
+    },
+    {
+      id: 5,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+      type: "small",
+    },
+    {
+      id: 6,
+      title: "UGC",
+      image: "https://i.pinimg.com/736x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+      type: "small",
+    },
   ],
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Star } from "lucide-react";
-import "../../styles/Testinomial.css"
+import "../../styles/Testinomial.css";
 
 const testimonials = [
   {
@@ -29,114 +29,133 @@ const testimonials = [
   },
 ];
 
-const Testimonial = () => {
+export default function Testimonial() {
   return (
-    <section className="py-20 text-white overflow-hidden">
-      <h2 className="text-center text-3xl md:text-5xl mb-14">
-        What Our Clients Think
-      </h2>
+    <section className=" md:py-24 text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2
+          className="
+            text-center
+            text-3xl
+            sm:text-4xl
+            md:text-5xl
+            font-light
+            mb-12
+            md:mb-14
+          "
+        >
+          What Our Clients Think
+        </h2>
 
-      <div className="testimonialcarousel-trust">
-        <div className="group-trust">
-          {testimonials.map((item, i) => (
-            <TestimonialCard key={i} {...item} />
-          ))}
-        </div>
+        <div className="testimonialcarousel-trust">
+          <div className="group-trust">
+            {testimonials.map((item, i) => (
+              <TestimonialCard key={i} {...item} />
+            ))}
+          </div>
 
-        <div className="group-trust" aria-hidden>
-          {testimonials.map((item, i) => (
-            <TestimonialCard key={`copy-${i}`} {...item} />
-          ))}
+          <div className="group-trust" aria-hidden>
+            {testimonials.map((item, i) => (
+              <TestimonialCard key={`copy-${i}`} {...item} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 function TestimonialCard({ name, location, review }) {
   return (
     <div
       className="
-      w-[340px]
-      h-fit
-      flex-shrink-0
+        testimonial-card
+        flex-shrink-0
 
-      p-8
+        rounded-[24px]
 
-      rounded-[24px]
+        border
+        border-white/10
 
-      border border-white/10
+        bg-[linear-gradient(135deg,rgba(88,28,135,.28),rgba(255,255,255,.05))]
+        backdrop-blur-xl
 
-      bg-[linear-gradient(135deg,rgba(88,28,135,.28),rgba(255,255,255,.05))]
-      backdrop-blur-xl
-
-      transition-all
-      duration-500
-
-      hover:border-violet-400/30
-      hover:-translate-y-1
-    "
+        transition-all
+        duration-500
+      "
     >
       {/* Profile */}
-      <div className="flex items-center gap-5 mb-8">
+      <div className="flex items-center gap-3 md:gap-5 mb-6 md:mb-8">
         <div
           className="
-          h-20
-          w-20
-          rounded-full
+            h-14
+            w-14
+            md:h-20
+            md:w-20
 
-          bg-gradient-to-br
-          from-violet-400
-          via-pink-400
-          to-orange-300
+            rounded-full
 
-          flex
-          items-center
-          justify-center
+            bg-gradient-to-br
+            from-violet-400
+            via-pink-400
+            to-orange-300
 
-          text-3xl
-          font-semibold
-          text-black
-        "
+            flex
+            items-center
+            justify-center
+
+            text-xl
+            md:text-3xl
+
+            font-semibold
+            text-black
+          "
         >
           {name.charAt(0)}
         </div>
 
         <div>
-          <h3 className="text-[32px] leading-none font-light">
+          <h3
+            className="
+              text-lg
+              md:text-3xl
+              leading-none
+              font-light
+            "
+          >
             {name}
           </h3>
 
-          <p className="mt-2 text-sm text-white/40">
+          <p className="mt-2 text-xs md:text-sm text-white/40">
             {location}
           </p>
         </div>
       </div>
 
       {/* Stars */}
-      <div className="flex gap-1 mb-5">
+      <div className="flex gap-1 mb-4 md:mb-5">
         {[...Array(5)].map((_, i) => (
-          <span
+          <Star
             key={i}
-            className="text-yellow-300 text-xl"
-          >
-            ★
-          </span>
+            size={18}
+            fill="currentColor"
+            className="text-yellow-300"
+          />
         ))}
       </div>
 
       {/* Review */}
       <p
         className="
-        text-[15px]
-        leading-7
-        text-white/70
-      "
+          text-sm
+          md:text-[15px]
+          leading-6
+          md:leading-7
+          text-white/70
+        "
       >
         {review}
       </p>
     </div>
   );
 }
-
-export default Testimonial;

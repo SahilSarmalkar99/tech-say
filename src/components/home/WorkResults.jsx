@@ -27,26 +27,42 @@ export default function WorkResults() {
         </h2>
 
         {/* Filters */}
-        <div className="flex justify-center flex-wrap gap-4 mb-14">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActive(filter)}
-              className={`
-                px-8 py-3 rounded-full border
-                transition-all duration-300
+        <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-14">
+  {filters.map((filter) => (
+    <button
+      key={filter}
+      onClick={() => setActive(filter)}
+      className={`
+        relative
+        px-5 md:px-8
+        py-2.5 md:py-3
+        rounded-full
+        text-sm md:text-base
+        border
+        transition-all duration-300
+        hover:scale-105
 
-                ${
-                  active === filter
-                    ? "bg-white/20 border-white/30"
-                    : "border-white/10 hover:border-white/30"
-                }
-              `}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+        ${
+          active === filter
+            ? `
+              bg-white
+              text-black
+              border-white
+              shadow-lg
+            `
+            : `
+              bg-white/5
+              border-white/10
+              hover:border-white/30
+              hover:bg-white/10
+            `
+        }
+      `}
+    >
+      {filter}
+    </button>
+  ))}
+</div>
 
         {/* Top Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -71,10 +87,37 @@ export default function WorkResults() {
 
         {/* CTA */}
         <div className="flex justify-center mt-12">
-          <button className="px-10 py-4 rounded-full border border-white/20 hover:bg-white/10 transition">
-            View all of our work
-          </button>
-        </div>
+  <button
+    className="
+      group
+      flex
+      items-center
+      gap-3
+      px-8 md:px-10
+      py-3 md:py-4
+      rounded-full
+      bg-white
+      text-black
+      font-medium
+      transition-all
+      duration-300
+      hover:scale-105
+      hover:shadow-[0_0_30px_rgba(255,255,255,0.25)]
+    "
+  >
+    View all our work
+
+    <ArrowUpRight
+      size={18}
+      className="
+        transition-transform
+        duration-300
+        group-hover:translate-x-1
+        group-hover:-translate-y-1
+      "
+    />
+  </button>
+</div>
 
       </div>
     </section>

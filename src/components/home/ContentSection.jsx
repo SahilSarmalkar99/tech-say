@@ -1,21 +1,21 @@
 import { ArrowUpRight } from "lucide-react";
 
 const topRow = [
-  { id: 1, image: "/img1.jpg", brand: "Tribalveda" },
-  { id: 2, image: "/img2.jpg", brand: "Sugar.fit" },
-  { id: 3, image: "/img3.jpg", brand: "Kyari" },
+  { id: 1, image: "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg", brand: "Tribalveda" },
+  { id: 2, image: "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg", brand: "Sugar.fit" },
+  { id: 3, image: "https://i.pinimg.com/736x/95/35/a7/9535a7659fe5edb528ca82272d518dd9.jpg", brand: "Kyari" },
 ];
 
 const bottomRow = [
-  { id: 4, image: "/img4.jpg", brand: "Kyari" },
-  { id: 5, image: "/img5.jpg", brand: "Kenia" },
-  { id: 6, image: "/img6.jpg", brand: "FreshCon" },
-  { id: 7, image: "/img7.jpg", brand: "Ugaoo" },
+  { id: 4, image: "https://i.pinimg.com/736x/ae/ae/48/aeae48bb532ab97e3165056a71cc22d0.jpg", brand: "Kyari" },
+  { id: 5, image: "https://i.pinimg.com/736x/36/ea/23/36ea23d6473323af5e202b027bd0a4d2.jpg", brand: "Kenia" },
+  { id: 6, image: "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg", brand: "FreshCon" },
+  { id: 7, image: "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg", brand: "Ugaoo" },
 ];
 
 export default function ContentSection() {
   return (
-    <section className="py-24 px-4 text-white">
+    <section className="md:py-20 px-4 text-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-light mb-16">
           Creating Content That Feels Real,

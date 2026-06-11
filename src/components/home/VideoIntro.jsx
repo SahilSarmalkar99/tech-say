@@ -6,10 +6,21 @@ const VideoIntro = ({
   return (
     <section
       ref={sectionRef}
-      className="relative h-[150vh]"
+      className="
+        relative
+        h-[120vh]
+        md:h-[140vh]
+        lg:h-[150vh]
+      "
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
-
+      <div
+        className="
+          sticky
+          top-0
+          h-[100svh]
+          overflow-hidden
+        "
+      >
         {/* VIDEO */}
         <video
           ref={videoRef}
@@ -17,13 +28,18 @@ const VideoIntro = ({
           muted
           loop
           playsInline
+          preload="auto"
           className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
-          will-change-transform
+            absolute
+            inset-0
+
+            w-full
+            h-full
+
+            object-cover
+            object-center
+
+            will-change-transform
           "
         >
           <source
@@ -36,22 +52,28 @@ const VideoIntro = ({
         <div
           ref={overlayRef}
           className="
-          absolute
-          inset-0
-          opacity-0
-          bg-black
+            absolute
+            inset-0
+            bg-black
+            opacity-0
           "
         />
 
-        {/* PURPLE GRADIENT */}
+        {/* RESPONSIVE GRADIENT */}
         <div
           className="
-          absolute
-          inset-0
-          bg-gradient-to-b
-          from-transparent
-          via-[#251437]/40
-          to-[#51385F]
+            absolute
+            inset-0
+
+            bg-gradient-to-b
+
+            from-black/10
+            via-[#251437]/40
+            to-[#51385F]
+
+            md:from-transparent
+            md:via-[#251437]/35
+            md:to-[#51385F]
           "
         />
       </div>
