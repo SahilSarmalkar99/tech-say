@@ -16,10 +16,10 @@ export default function WorkResults() {
   const textReveal = useTextReveal();
   const fadeIn = useFadeUpCards();
   return (
-    <section ref={fadeIn} className="py-15 px-5 text-white">
+    <section ref={fadeIn} className="py-15 md:py-24  px-5 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h2 ref={textReveal} className="text-center text-3xl md:text-5xl font-light mb-12">
+        <h2 ref={textReveal} className="text-center text-3xl md:text-[72px] font-light mb-12">
           Work That Delivers Results
         </h2>
 

@@ -8,7 +8,7 @@ const TrustedBrand = () => {
   return (
     <section
     ref={fadeIn}
-      className="w-full flex flex-col items-center  justify-center px-6  overflow-hidden"
+      className="py-24 w-full flex flex-col items-center  justify-center px-6  overflow-hidden"
       id="trust"
     >
       <div className="fade-card  max-w-[1000px] text-center flex flex-col items-center">
