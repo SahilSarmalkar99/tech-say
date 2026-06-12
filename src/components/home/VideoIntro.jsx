@@ -59,23 +59,7 @@ const VideoIntro = ({
           "
         />
 
-        {/* RESPONSIVE GRADIENT */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-gradient-to-b
-
-            from-black/10
-            via-[#251437]/40
-            to-[#51385F]
-
-            md:from-transparent
-            md:via-[#251437]/35
-            md:to-[#51385F]
-          "
-        />
+       
       </div>
     </section>
   );

@@ -30,12 +30,13 @@ export default function useVideoHeroAnimation(
       scale: 2.2,
       filter: "blur(25px)",
       ease: "none",
+      opacity : 0,
     })
 
       .to(
         overlayRef.current,
         {
-          opacity: 0.9,
+          opacity: 0,
         },
         0.4,
       )
