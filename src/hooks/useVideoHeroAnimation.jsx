@@ -9,6 +9,7 @@ export default function useVideoHeroAnimation(
   videoRef,
   overlayRef,
   heroRef,
+  setShowNavbar
 ) {
   useLayoutEffect(() => {
     gsap.set(heroRef.current, {

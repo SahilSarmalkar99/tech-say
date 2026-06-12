@@ -8,9 +8,9 @@ const VideoIntro = ({
       ref={sectionRef}
       className="
         relative
-        h-[120vh]
-        md:h-[140vh]
-        lg:h-[150vh]
+        h-[100vh]
+        md:h-[120vh]
+
       "
     >
       <div

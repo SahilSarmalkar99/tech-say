@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import useTextReveal from "../../hooks/useTextReveal";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const topRow = [
   {
@@ -49,24 +51,27 @@ const bottomRow = [
 ];
 
 export default function ContentSection() {
+
+  const textReveal = useTextReveal();
+  const fadeIn = useFadeUpCards();
   return (
-    <section className="md:py-10 px-4 text-white">
+    <section ref={fadeIn} className="md:py-10 px-4 text-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-light mb-16">
+        <h2 ref={textReveal} className="text-center text-2xl md:text-4xl lg:text-5xl  mb-16 uppercase">
           Creating Content That Feels Real,
           <br className="hidden md:block" />
           Relatable And Impactful.
         </h2>
 
         {/* Top Row */}
-        <div className="flex justify-center flex-wrap gap-6 mb-6">
+        <div className="fade-card flex justify-center flex-wrap gap-6 mb-6">
           {topRow.map((item) => (
             <ContentCard key={item.id} {...item} />
           ))}
         </div>
 
         {/* Bottom Row */}
-        <div className="flex justify-center flex-wrap gap-6">
+        <div className="fade-card flex justify-center flex-wrap gap-6">
           {bottomRow.map((item) => (
             <ContentCard key={item.id} {...item} />
           ))}
@@ -79,7 +84,7 @@ export default function ContentSection() {
 function ContentCard({ image, brand }) {
   return (
     <div
-      className="
+      className="fade-card
         relative
         overflow-hidden
         rounded-[28px]

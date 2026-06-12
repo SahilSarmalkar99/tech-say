@@ -28,7 +28,7 @@ export default function Home() {
     videoRef,
     overlayRef,
     heroRef,
-    
+    setShowNavbar
   );
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Home() {
 
       <section
         ref={sectionRef}
-        className="relative h-[200vh]"
+        className="relative h-[180vh]"
       >
         <div className="sticky top-0 h-screen overflow-hidden">
           <VideoIntro

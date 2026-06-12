@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import useTextReveal from "../../hooks/useTextReveal";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const videos = [
   { id: 1, src: "/videos/video1.mp4" },
@@ -39,11 +41,15 @@ export default function VideoCoverflow() {
     { x: 550, scale: 0.65, rotateY: -35, opacity: 0.25, zIndex: 10 },
   ];
 
+  const textReveal = useTextReveal();
+  const textReveal2 = useTextReveal();
+  const  fadeIn = useFadeUpCards();
+
   return (
     <section
+      ref={fadeIn}
       className="
       relative
-      min-h-screen
       overflow-hidden
       flex
       items-center
@@ -62,8 +68,8 @@ export default function VideoCoverflow() {
       "
       />
 
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 z-50 text-center">
-        <h2
+      <div className="absolute top-5 left-1/2 -translate-x-1/2 z-50 text-center">
+        <h2 ref={textReveal}
           className="
       text-4xl
       md:text-6xl
@@ -75,7 +81,7 @@ export default function VideoCoverflow() {
           Featured Work
         </h2>
 
-        <p
+        <p ref={textReveal2}
           className="
       text-white/70
       text-sm
@@ -89,15 +95,19 @@ export default function VideoCoverflow() {
       </div>
 
       {/* Carousel */}
+      
 
       <div
-        className="
+        className="fade-card
         relative
         w-full
-        h-[700px]
+        h-[450px]
+sm:h-[550px]
+md:h-[650px]
+lg:h-[700px]
         perspective-[2500px]
-        mt-40
-    md:mt-48
+        mt-35
+        md:mt-16
       "
       >
         {items.map((item, index) => {
@@ -167,7 +177,8 @@ export default function VideoCoverflow() {
         onClick={prev}
         className="
           absolute
-          left-8
+          left-3
+          md:left-8
           z-50
           w-14
           h-14
@@ -180,6 +191,8 @@ export default function VideoCoverflow() {
           flex
           items-center
           justify-center
+          mt-30
+          md:mt-0
         "
       >
         <ChevronLeft />
@@ -191,7 +204,10 @@ export default function VideoCoverflow() {
         onClick={next}
         className="
           absolute
-          right-8
+          right-3
+          md:right-8
+          mt-30
+          md:mt-0
           z-50
           w-14
           h-14

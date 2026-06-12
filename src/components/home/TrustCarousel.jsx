@@ -10,6 +10,7 @@ import img6 from "../../assets/trust/img6.avif";
 import img7 from "../../assets/trust/img7.avif";
 import img8 from "../../assets/trust/img8.avif";
 import img9 from "../../assets/trust/img9.avif";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const Item = [
   img1,
@@ -24,8 +25,10 @@ const Item = [
 ];
 
 const TrustCarousel = () => {
+
+  const fadeIn = useFadeUpCards();
   return (
-    <div className="w-full flex flex-col">
+    <div ref={fadeIn} className="w-full flex flex-col">
       
       {/* Normal Scroll */}
       <div className="carousel-trust">

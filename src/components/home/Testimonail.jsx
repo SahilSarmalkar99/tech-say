@@ -1,6 +1,8 @@
 import React from "react";
 import { Star } from "lucide-react";
 import "../../styles/Testinomial.css";
+import useTextReveal from "../../hooks/useTextReveal";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const testimonials = [
   {
@@ -30,10 +32,12 @@ const testimonials = [
 ];
 
 export default function Testimonial() {
+  const textReveal = useTextReveal();
+  const fadeIn = useFadeUpCards();
   return (
-    <section className=" md:py-24 text-white overflow-hidden">
+    <section ref={fadeIn} className="py-15 md:py-24 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <h2
+        <h2 ref={textReveal}
           className="
             text-center
             text-3xl
@@ -47,7 +51,7 @@ export default function Testimonial() {
           What Our Clients Think
         </h2>
 
-        <div className="testimonialcarousel-trust">
+        <div className="fade-card testimonialcarousel-trust">
           <div className="group-trust">
             {testimonials.map((item, i) => (
               <TestimonialCard key={i} {...item} />

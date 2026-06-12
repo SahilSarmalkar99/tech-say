@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { workData } from "../../data/workData";
+import useTextReveal from "../../hooks/useTextReveal";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const filters = ["Production", "Case Study", "Graphics", "Website"];
 
@@ -11,17 +13,18 @@ export default function WorkResults() {
 
   const largeCards = items.filter((item) => item.type === "large");
   const smallCards = items.filter((item) => item.type === "small");
-
+  const textReveal = useTextReveal();
+  const fadeIn = useFadeUpCards();
   return (
-    <section className="py-15 px-5 text-white">
+    <section ref={fadeIn} className="py-15 px-5 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-center text-3xl md:text-5xl font-light mb-12">
+        <h2 ref={textReveal} className="text-center text-3xl md:text-5xl font-light mb-12">
           Work That Delivers Results
         </h2>
 
         {/* Filters */}
-        <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-14">
+        <div className="fade-card flex justify-center flex-wrap gap-3 md:gap-4 mb-14">
           {filters.map((filter) => (
             <button
               key={filter}
@@ -59,21 +62,21 @@ export default function WorkResults() {
         </div>
 
         {/* Top Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <div className="fade-card grid md:grid-cols-2 gap-6 mb-6">
           {largeCards.map((card) => (
             <Card key={card.id} card={card} large />
           ))}
         </div>
 
         {/* Bottom Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="fade-card grid grid-cols-2 md:grid-cols-4 gap-6">
           {smallCards.map((card) => (
             <Card key={card.id} card={card} />
           ))}
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center mt-12">
+        <div className="fade-card flex justify-center mt-12">
           <button
             className="
       group

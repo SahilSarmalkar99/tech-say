@@ -1,8 +1,30 @@
 
 @import "tailwindcss";
 
-body{
-  background-color: #51385F;
+@font-face {
+  font-family: "Barabara";
+  src: url("./assets/font/font1.woff") format("woff");
+}
+
+@font-face {
+  font-family: "font2";
+  src: url("./assets/font/font2.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "font3";
+  src: url("./assets/font/font3.otf") format("opentype");
+
+}
+
+body {
+  background: linear-gradient(
+    to bottom,
+    #51385F 0%,
+    #51385F 40%,
+    #412B4E 70%,
+    #26182F 100%
+  );
 }
 
 .ring {
@@ -14,16 +36,19 @@ body{
 }
 
 :root {
-  --heading-font: "Playfair Display", serif;
+  --heading-font: "Barabara";
   --body-font: "Inter", sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6{
-  font-family: var(--heading-font);
-  font-weight: 700;
+  font-family: "font2";
+  letter-spacing: 2px;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
-body,p,span,li,a{
+p,span,li,a{
   font-family: var(--body-font);
   font-weight: 400;
 }
+

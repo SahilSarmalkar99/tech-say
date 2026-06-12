@@ -1,3 +1,6 @@
+import useFadeUpCards from "../../hooks/useFadeIn";
+import useTextReveal from "../../hooks/useTextReveal";
+
 const brandingItems = [
   {
     id: 1,
@@ -34,13 +37,16 @@ const brandingItems = [
 ];
 
 export default function BrandingSection() {
+
+  const textReveal = useTextReveal();
+  const fadeIn = useFadeUpCards();
   return (
-    <section className=" md:py-24 px-4 md:px-6 text-white">
+    <section ref={fadeIn} className="py-15 md:py-24 px-4 md:px-6 text-white">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="max-w-4xl mx-auto mb-12 md:mb-16">
-          <h2
+          <h2 ref={textReveal}
             className="
               text-center
               text-3xl
@@ -59,7 +65,7 @@ export default function BrandingSection() {
         {/* ================= DESKTOP ================= */}
 
         <div
-          className="
+          className="fade-card
             hidden
             lg:grid
             grid-cols-[1fr_2.8fr_1fr]
@@ -118,8 +124,9 @@ export default function BrandingSection() {
 
         {/* ================= TABLET ================= */}
 
-        <div
+        <div 
           className="
+          fade-card
             hidden
             sm:grid
             lg:hidden
@@ -139,7 +146,7 @@ export default function BrandingSection() {
         {/* ================= MOBILE ================= */}
 
         <div
-          className="
+          className="fade-card
             grid
             sm:hidden
             grid-cols-1
