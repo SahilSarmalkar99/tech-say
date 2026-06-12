@@ -6,26 +6,18 @@ import DashedSeparator from "../DashedSeparator";
 export default function WorkShowcase() {
   const categories = Object.keys(portfolioData);
 
-  const [activeCategory, setActiveCategory] =
-    useState("Production");
+  const [activeCategory, setActiveCategory] = useState("Production");
 
-  const subCategories = Object.keys(
-    portfolioData[activeCategory]
-  );
+  const subCategories = Object.keys(portfolioData[activeCategory]);
 
-  const [activeSub, setActiveSub] = useState(
-    subCategories[0]
-  );
+  const [activeSub, setActiveSub] = useState(subCategories[0]);
 
-  const items =
-    portfolioData[activeCategory][activeSub];
+  const items = portfolioData[activeCategory][activeSub];
 
   const handleCategory = (category) => {
     setActiveCategory(category);
 
-    setActiveSub(
-      Object.keys(portfolioData[category])[0]
-    );
+    setActiveSub(Object.keys(portfolioData[category])[0]);
   };
 
   return (
@@ -34,9 +26,9 @@ export default function WorkShowcase() {
       <div className="flex  flex-wrap justify-center gap-5 mb-10">
         {categories.map((cat) => (
           <button
-  key={cat}
-  onClick={() => handleCategory(cat)}
-  className={` relative  px-10 py-4 rounded-full text-white font-medium border border-white/20 bg-white/5 shadow-[0_8px_20px_rgba(255,255,255,0.08),0_10px_30px_rgba(0,0,0,0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(255,255,255,0.12),0_20px_40px_rgba(0,0,0,0.5)] before:absolute  before:inset-[1px] before:rounded-full before:border before:border-white/10
+            key={cat}
+            onClick={() => handleCategory(cat)}
+            className={` relative  px-10 py-4 rounded-full text-white font-medium border border-white/20 bg-white/5 shadow-[0_8px_20px_rgba(255,255,255,0.08),0_10px_30px_rgba(0,0,0,0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(255,255,255,0.12),0_20px_40px_rgba(0,0,0,0.5)] before:absolute  before:inset-[1px] before:rounded-full before:border before:border-white/10
     ${
       activeCategory === cat
         ? `
@@ -48,9 +40,9 @@ export default function WorkShowcase() {
         : ""
     }
   `}
->
-  {cat}
-</button>
+          >
+            {cat}
+          </button>
         ))}
       </div>
 
@@ -58,11 +50,11 @@ export default function WorkShowcase() {
 
       {/* SUB FILTERS */}
       <div className="flex justify-center flex-wrap gap-4 mb-12">
-  {subCategories.map((sub) => (
-    <button
-      key={sub}
-      onClick={() => setActiveSub(sub)}
-      className={`
+        {subCategories.map((sub) => (
+          <button
+            key={sub}
+            onClick={() => setActiveSub(sub)}
+            className={`
         px-5 py-2
         rounded-full
         text-white
@@ -76,11 +68,11 @@ export default function WorkShowcase() {
             : "border-white/30 hover:border-white/60"
         }
       `}
-    >
-      {sub}
-    </button>
-  ))}
-</div>
+          >
+            {sub}
+          </button>
+        ))}
+      </div>
 
       {/* CONTENT */}
       <div className="max-w-6xl mx-auto px-4">
@@ -93,6 +85,10 @@ export default function WorkShowcase() {
                 overflow-hidden
                 rounded-[24px]
                 group
+                cursor-pointer
+                transition-all
+                duration-500
+                hover:-translate-y-2
               "
             >
               <img
@@ -107,26 +103,36 @@ export default function WorkShowcase() {
               />
 
               {/* Glass CTA */}
-              <div
-                className="
-                  absolute
-                  left-6
-                  right-6
-                  bottom-6
+             <div
+  className="
+    absolute
+    left-6
+    right-6
+    bottom-6
 
-                  rounded-2xl
+    rounded-2xl
 
-                  bg-white/10
-                  backdrop-blur-xl
+    bg-white/10
+    backdrop-blur-xl
 
-                  py-4
+    py-4
 
-                  flex
-                  items-center
-                  justify-center
-                  gap-3
-                "
-              >
+    flex
+    items-center
+    justify-center
+    gap-3
+
+    opacity-0
+    translate-y-8
+
+    transition-all
+    duration-500
+    ease-out
+
+    group-hover:opacity-100
+    group-hover:translate-y-0
+  "
+>
                 <span>View Work</span>
 
                 <ArrowUpRight size={16} />

@@ -1,16 +1,51 @@
 import { ArrowUpRight } from "lucide-react";
 
 const topRow = [
-  { id: 1, image: "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg", brand: "Tribalveda" },
-  { id: 2, image: "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg", brand: "Sugar.fit" },
-  { id: 3, image: "https://i.pinimg.com/736x/95/35/a7/9535a7659fe5edb528ca82272d518dd9.jpg", brand: "Kyari" },
+  {
+    id: 1,
+    image:
+      "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+    brand: "Tribalveda",
+  },
+  {
+    id: 2,
+    image:
+      "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg",
+    brand: "Sugar.fit",
+  },
+  {
+    id: 3,
+    image:
+      "https://i.pinimg.com/736x/95/35/a7/9535a7659fe5edb528ca82272d518dd9.jpg",
+    brand: "Kyari",
+  },
 ];
 
 const bottomRow = [
-  { id: 4, image: "https://i.pinimg.com/736x/ae/ae/48/aeae48bb532ab97e3165056a71cc22d0.jpg", brand: "Kyari" },
-  { id: 5, image: "https://i.pinimg.com/736x/36/ea/23/36ea23d6473323af5e202b027bd0a4d2.jpg", brand: "Kenia" },
-  { id: 6, image: "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg", brand: "FreshCon" },
-  { id: 7, image: "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg", brand: "Ugaoo" },
+  {
+    id: 4,
+    image:
+      "https://i.pinimg.com/736x/ae/ae/48/aeae48bb532ab97e3165056a71cc22d0.jpg",
+    brand: "Kyari",
+  },
+  {
+    id: 5,
+    image:
+      "https://i.pinimg.com/736x/36/ea/23/36ea23d6473323af5e202b027bd0a4d2.jpg",
+    brand: "Kenia",
+  },
+  {
+    id: 6,
+    image:
+      "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+    brand: "FreshCon",
+  },
+  {
+    id: 7,
+    image:
+      "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg",
+    brand: "Ugaoo",
+  },
 ];
 
 export default function ContentSection() {
@@ -90,52 +125,58 @@ function ContentCard({ image, brand }) {
       {/* Glass Label */}
       <div
         className="
-          absolute
-          left-4
-          right-4
-          bottom-4
+    absolute
+    left-4
+    right-4
+    bottom-4
 
-          flex
-          items-center
-          justify-between
+    flex
+    items-center
+    justify-between
 
-          px-5
-          py-4
+    px-5
+    py-4
 
-          rounded-2xl
-          border border-white/10
+    rounded-2xl
+    border border-white/10
 
-          bg-white/10
-          backdrop-blur-xl
+    bg-white/10
+    backdrop-blur-xl
 
-          transition-all
-          duration-300
+    opacity-0
+    translate-y-6
 
-          group-hover:bg-white/15
-        "
+    transition-all
+    duration-500
+    ease-out
+
+    group-hover:opacity-100
+    group-hover:translate-y-0
+  "
       >
-        <span className="font-medium text-sm md:text-base">
-          {brand}
-        </span>
+        <span className="font-medium text-sm md:text-base">{brand}</span>
 
         <div
           className="
-            h-8
-            w-8
-            rounded-full
+      h-8
+      w-8
+      rounded-full
 
-            bg-white
-            text-black
+      bg-white
+      text-black
 
-            flex
-            items-center
-            justify-center
+      flex
+      items-center
+      justify-center
 
-            transition-transform
-            duration-300
+      scale-75
 
-            group-hover:rotate-45
-          "
+      transition-all
+      duration-300
+
+      group-hover:scale-100
+      group-hover:rotate-45
+    "
         >
           <ArrowUpRight size={16} />
         </div>

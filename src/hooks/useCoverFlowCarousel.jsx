@@ -3,69 +3,81 @@ import gsap from "gsap";
 
 const useCarousel = (cardsRef) => {
   useEffect(() => {
-    const cards = cardsRef.current;
+    const cards = cardsRef.current.filter(Boolean);
 
     if (!cards.length) return;
 
     const total = cards.length;
+
     let offset = 0;
     let frameId;
+    let lastTime = performance.now();
 
-    const animate = () => {
+    const animate = (time) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
+      const width = window.innerWidth;
+
+      const radius =
+        width < 640
+          ? 320
+          : width < 768
+          ? 450
+          : width < 1024
+          ? 650
+          : 900;
+
       cards.forEach((card, i) => {
-        let progress = ((i + offset) % total) / total;
+        const progress = ((i + offset) % total) / total;
 
+        // tighter cylinder
         const angle = gsap.utils.mapRange(
           0,
           1,
-          -1.1,
-          1.1,
+          -Math.PI / 2.15,
+          Math.PI / 2.15,
           progress
         );
 
-        const radiusX = 900;
-        const radiusZ = 2500;
+        const x = Math.sin(angle) * radius;
 
-        const x = Math.sin(angle) * radiusX;
+        // tunnel effect
+        const z = -(Math.cos(angle) * radius);
 
-        const z =
-          -(Math.cos(angle) * radiusZ - radiusZ);
+        // face center
+        const rotateY = -(angle * 180) / Math.PI;
 
-        const rotateY = -angle * 35;
-
-        const scale =
-          0.7 +
-          ((Math.cos(angle) + 1) / 2) * 0.4;
-
-        const opacity =
-          0.4 +
-          ((Math.cos(angle) + 1) / 2) * 0.6;
+        const depth = (Math.cos(angle) + 1) / 2;
 
         gsap.set(card, {
           xPercent: -50,
           yPercent: -50,
 
           x,
-          y: Math.abs(angle),
-
+          y: 0,
           z,
 
           rotateY,
 
-          scale,
+          // much more natural
+          scale: 0.95 + depth * 0.05,
 
-          opacity,
+          opacity: 0.65 + depth * 0.35,
 
-          zIndex: Math.floor(scale * 100),
+          zIndex: Math.round(-z),
+
+          force3D: true,
         });
       });
 
-      offset += 0.003;
+      // frame-rate independent speed
+      offset += delta * 0.00015;
 
       frameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    frameId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(frameId);
   }, [cardsRef]);

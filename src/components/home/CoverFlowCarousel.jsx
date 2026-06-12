@@ -11,29 +11,47 @@ export default function Carousel() {
   return (
     <div
       className="
-      w-screen
-      h-screen
-      relative
-      overflow-hidden
-      mt-15
-      [perspective:2500px]
-      [transform-style:preserve-3d]
-    "
+    w-full
+    h-screen
+    relative
+    overflow-hidden
+    mt-15
+
+    [perspective:3000px]
+    [transform-style:preserve-3d]
+  "
     >
       {carouselImages.map((image, index) => (
         <div
           key={index}
           ref={(el) => (cardsRef.current[index] = el)}
-          className="
-            absolute
-            w-[220px]
-            h-[340px]
-            rounded-[20px]
-            overflow-hidden
-            top-1/2
-            left-1/2
-            [transform-style:preserve-3d]
-          "
+         className="
+  absolute
+
+  w-[140px]
+  h-[260px]
+
+  sm:w-[180px]
+  sm:h-[340px]
+
+  md:w-[240px]
+  md:h-[450px]
+
+  lg:w-[280px]
+  lg:h-[520px]
+
+  xl:w-[320px]
+  xl:h-[600px]
+
+  rounded-[20px]
+  overflow-hidden
+
+  top-1/2
+  left-1/2
+
+  [transform-style:preserve-3d]
+  will-change-transform
+"
         >
           <img
             src={image}
