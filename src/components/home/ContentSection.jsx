@@ -55,7 +55,7 @@ export default function ContentSection() {
   const textReveal = useTextReveal();
   const fadeIn = useFadeUpCards();
   return (
-    <section ref={fadeIn} className="md:py-24 px-4 text-white">
+    <section ref={fadeIn} className="py-15 md:py-24 px-4 text-white">
       <div className="max-w-7xl mx-auto">
         <h2 ref={textReveal} className="text-center text-2xl md:text-4xl lg:text-[72px]  mb-16 uppercase">
           Creating Content That Feels Real,

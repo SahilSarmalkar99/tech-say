@@ -107,7 +107,7 @@ sm:h-[550px]
 md:h-[650px]
 lg:h-[700px]
         perspective-[2500px]
-        mt-35
+        mt-50
         md:mt-20
       "
       >
