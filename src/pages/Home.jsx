@@ -14,6 +14,7 @@ import VideoCoverflow from "../components/home/VideoCoverflow";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import DashedSeparator from "../components/DashedSeparator";
 
 export default function Home() {
   const sectionRef = useRef(null);
@@ -64,12 +65,17 @@ export default function Home() {
           <Hero heroRef={heroRef} />
         </div>
       </section>
-
+      <DashedSeparator />
       <TrustedBrand />
+      <DashedSeparator />
       <WorkResults />
+      <DashedSeparator />
       <ContentSection />
+      <DashedSeparator />
       <BrandingSection />
+      <DashedSeparator />
       <VideoCoverflow />
+      <DashedSeparator />
       <Testimonial />
       <Footer />
     </>
