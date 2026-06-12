@@ -13,7 +13,7 @@ export default function WorkResults() {
   const smallCards = items.filter((item) => item.type === "small");
 
   return (
-    <section className="py-20 px-5 text-white">
+    <section className="py-15 px-5 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h2 className="text-center text-3xl md:text-5xl font-light mb-12">

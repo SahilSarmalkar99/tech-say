@@ -21,12 +21,12 @@ const useCarousel = (cardsRef) => {
 
       const radius =
         width < 640
-          ? 320
+          ? 550 // mobile only
           : width < 768
-          ? 450
-          : width < 1024
-          ? 650
-          : 900;
+            ? 800 // tablet
+            : width < 1024
+              ? 900 // keep as is
+              : 1000; // keep as is
 
       cards.forEach((card, i) => {
         const progress = ((i + offset) % total) / total;
@@ -35,9 +35,19 @@ const useCarousel = (cardsRef) => {
         const angle = gsap.utils.mapRange(
           0,
           1,
-          -Math.PI / 2.15,
-          Math.PI / 2.15,
-          progress
+          width < 640
+            ? -Math.PI / 1.5
+            : width < 768
+              ? -Math.PI / 2
+              : -Math.PI / 2.15,
+
+          width < 640
+            ? Math.PI / 1.5
+            : width < 768
+              ? Math.PI / 2
+              : Math.PI / 2.15,
+
+          progress,
         );
 
         const x = Math.sin(angle) * radius;

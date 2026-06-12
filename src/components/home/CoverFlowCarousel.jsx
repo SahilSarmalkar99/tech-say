@@ -16,8 +16,8 @@ export default function Carousel() {
     relative
     overflow-hidden
     mt-15
-
-    [perspective:3000px]
+    [perspective:500px]
+    md:[perspective:3000px]
     [transform-style:preserve-3d]
   "
     >
@@ -26,32 +26,22 @@ export default function Carousel() {
           key={index}
           ref={(el) => (cardsRef.current[index] = el)}
          className="
-  absolute
-
-  w-[140px]
-  h-[260px]
-
-  sm:w-[180px]
-  sm:h-[340px]
-
-  md:w-[240px]
-  md:h-[450px]
-
-  lg:w-[280px]
-  lg:h-[520px]
-
-  xl:w-[320px]
-  xl:h-[600px]
-
-  rounded-[20px]
-  overflow-hidden
-
-  top-1/2
-  left-1/2
-
-  [transform-style:preserve-3d]
-  will-change-transform
-"
+          absolute
+          w-[260px]
+          h-[580px]
+          md:w-[270px]
+          md:h-[650px]
+          lg:w-[280px]
+          lg:h-[520px]
+          xl:w-[320px]
+          xl:h-[600px]
+          rounded-[20px]
+          overflow-hidden
+          top-1/2
+          left-1/2
+          [transform-style:preserve-3d]
+          will-change-transform
+          "
         >
           <img
             src={image}

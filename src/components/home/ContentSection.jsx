@@ -50,7 +50,7 @@ const bottomRow = [
 
 export default function ContentSection() {
   return (
-    <section className="md:py-20 px-4 text-white">
+    <section className="md:py-10 px-4 text-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-light mb-16">
           Creating Content That Feels Real,
@@ -90,8 +90,8 @@ function ContentCard({ image, brand }) {
         md:w-[230px]
         md:h-[340px]
 
-        lg:w-[250px]
-        lg:h-[370px]
+        lg:w-[270px]
+        lg:h-[450px]
 
         cursor-pointer
       "
