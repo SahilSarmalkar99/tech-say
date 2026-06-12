@@ -42,7 +42,7 @@ export default function Testimonial() {
             text-center
             text-3xl
             sm:text-4xl
-            md:text-5xl
+            md:text-[72px]
             font-light
             mb-12
             md:mb-14

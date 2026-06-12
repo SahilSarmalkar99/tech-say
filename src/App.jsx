@@ -8,8 +8,10 @@ import Project from "./pages/Project";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import useLenis from "./hooks/useLenis";
 
 function App() {
+  useLenis();
   return (
     <BrowserRouter>
     <ScrollToTop />

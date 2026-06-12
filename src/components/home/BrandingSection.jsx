@@ -45,13 +45,13 @@ export default function BrandingSection() {
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="max-w-4xl mx-auto mb-12 md:mb-16">
+        <div className="max-w-7xl mx-auto mb-12 md:mb-16">
           <h2 ref={textReveal}
             className="
               text-center
               text-3xl
               sm:text-4xl
-              md:text-5xl
+              md:text-[72px]
               font-light
               leading-tight
             "

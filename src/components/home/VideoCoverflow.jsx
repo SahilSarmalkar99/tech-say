@@ -49,6 +49,7 @@ export default function VideoCoverflow() {
     <section
       ref={fadeIn}
       className="
+      md:py-24
       relative
       overflow-hidden
       flex
@@ -68,11 +69,11 @@ export default function VideoCoverflow() {
       "
       />
 
-      <div className="absolute top-5 left-1/2 -translate-x-1/2 z-50 text-center">
+      <div className="absolute top-15 left-1/2 -translate-x-1/2 z-50 text-center">
         <h2 ref={textReveal}
           className="
       text-4xl
-      md:text-6xl
+      md:text-[72px]
       font-bold
       text-white
       mb-4
@@ -107,7 +108,7 @@ md:h-[650px]
 lg:h-[700px]
         perspective-[2500px]
         mt-35
-        md:mt-16
+        md:mt-20
       "
       >
         {items.map((item, index) => {
