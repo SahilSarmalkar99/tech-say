@@ -3,14 +3,21 @@ import ProjectHero from '../components/Project/ProjectHero'
 import ProcessSection from '../components/Project/ProcessSection'
 import ResultsSection from '../components/Project/ResultsSection'
 import Navbar from '../components/Navbar'
+import FeaturedProjects from '../components/Project/FeaturedProjects'
+import BrandMarquee from '../components/Project/BrandMarquee'
+import CTASection from '../components/Project/CTASection'
 
 const Project = () => {
   return (
     <div>
       <Navbar visible = {true}/>
-        <ProjectHero />
+        {/* <ProjectHero />
         <ProcessSection />
-        <ResultsSection />
+        <ResultsSection /> */}
+        <FeaturedProjects />
+        <BrandMarquee />
+
+        <CTASection />
     </div>
   )
 }
