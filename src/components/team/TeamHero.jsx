@@ -1,5 +1,5 @@
 import React from "react";
-
+import video from "../../assets/team/team.mp4"
 const TeamHero = () => {
   return (
     <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
@@ -17,7 +17,7 @@ const TeamHero = () => {
           object-center
         "
       >
-        <source src="/hero.mp4" type="video/mp4" />
+        <source src={video} type="video/mp4" />
       </video>
 
       {/* Overlay */}
