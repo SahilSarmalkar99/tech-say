@@ -38,16 +38,16 @@ export default function Navbar({ visible = true }) {
       path: "/work",
     },
     {
-      name: "Capabilities",
-      path: "/services",
+      name: "Team",
+      path: "/team",
     },
     {
       name: "Projects",
       path: "/project",
     },
     {
-      name: "Insights",
-      path: "/insights",
+      name: "ContactUs",
+      path: "/contact",
     },
   ];
 
@@ -248,7 +248,7 @@ export default function Navbar({ visible = true }) {
               {/* CTA */}
               <div className="justify-self-end">
                 <NavLink
-                  to="/contact"
+                  to="/book"
                   className="
                     hidden
                     md:flex
@@ -303,7 +303,7 @@ export default function Navbar({ visible = true }) {
                   </div>
 
                   <span className="relative">
-                    Start Project
+                    Book A Call
                   </span>
                 </NavLink>
 
@@ -366,7 +366,7 @@ export default function Navbar({ visible = true }) {
           ))}
 
           <NavLink
-            to="/contact"
+            to="/book"
             onClick={() =>
               setMobileOpen(false)
             }
@@ -383,7 +383,7 @@ export default function Navbar({ visible = true }) {
               font-semibold
             "
           >
-            Start Project
+            Book A Call
 
             <ArrowUpRight size={18} />
           </NavLink>

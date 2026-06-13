@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import FeaturedProjects from '../components/Project/FeaturedProjects'
 import BrandMarquee from '../components/Project/BrandMarquee'
 import CTASection from '../components/Project/CTASection'
+import Work from '../components/Project/Work'
 
 const Project = () => {
   return (
@@ -16,7 +17,7 @@ const Project = () => {
         <ResultsSection /> */}
         <FeaturedProjects />
         <BrandMarquee />
-
+        <Work />
         <CTASection />
     </div>
   )
