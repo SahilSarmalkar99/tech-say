@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../../data/workPortfolio";
 import DashedSeparator from "../DashedSeparator";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 export default function WorkShowcase() {
   const categories = Object.keys(portfolioData);
@@ -14,6 +15,8 @@ export default function WorkShowcase() {
 
   const items = portfolioData[activeCategory][activeSub];
 
+  const fadeIn = useFadeUpCards();
+
   const handleCategory = (category) => {
     setActiveCategory(category);
 
@@ -21,9 +24,9 @@ export default function WorkShowcase() {
   };
 
   return (
-    <section className="bg-[#4b3260] py-16">
+    <section ref={fadeIn} className="bg-[#4b3260] py-16">
       {/* MAIN FILTERS */}
-      <div className="flex  flex-wrap justify-center gap-5 mb-10">
+      <div className="fade-card flex  flex-wrap justify-center gap-5 mb-10">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -49,7 +52,7 @@ export default function WorkShowcase() {
       <DashedSeparator />
 
       {/* SUB FILTERS */}
-      <div className="flex justify-center flex-wrap gap-4 mb-12">
+      <div className="fade-card flex justify-center flex-wrap gap-4 mb-12">
         {subCategories.map((sub) => (
           <button
             key={sub}
@@ -75,7 +78,7 @@ export default function WorkShowcase() {
       </div>
 
       {/* CONTENT */}
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="fade-card max-w-6xl mx-auto px-4">
         <div className="grid gap-8">
           {items.map((item) => (
             <div

@@ -14,7 +14,7 @@ export const workData = {
     },
     {
       id: 3,
-      title: "UGC",
+      titlhe: "UGC",
       image: "https://wallpaperaccess.com/full/2665651.jpg",
       type: "small",
     },

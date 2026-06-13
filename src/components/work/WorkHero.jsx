@@ -1,14 +1,17 @@
 import React from "react";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const WorkHero = () => {
+  const fadeIn = useFadeUpCards();
   return (
-    <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+    <section ref={fadeIn} className=" relative h-[60vh] min-h-[400px] overflow-hidden">
       <video
         autoPlay
         muted
         loop
         playsInline
         className="
+        fade-card
           absolute
           inset-0
           w-full

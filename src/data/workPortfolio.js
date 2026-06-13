@@ -15,7 +15,7 @@ export const portfolioData = {
       },
     ],
 
-    "Content Creation": [
+    "Jewellery Videos": [
       {
         id: 3,
         title: "Content 1",
@@ -35,7 +35,7 @@ export const portfolioData = {
   },
 
   Graphics: {
-    All: [
+    "Short Ads" : [
       {
         id: 5,
         thumbnail: "/graphics/g1.jpg",
