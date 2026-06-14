@@ -2,7 +2,7 @@ import React from "react";
 import video from "../../assets/team/team.mp4"
 const TeamHero = () => {
   return (
-    <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+    <section className="relative h-[80vh] min-h-[400px] overflow-hidden">
       <video
         autoPlay
         muted

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import FolderCard from "./FolderCard";
+import useTextReveal from "../../hooks/useTextReveal";
+import useFadeUpCards from "../../hooks/useFadeIn";
 
 const projects = [
   {
@@ -58,8 +60,13 @@ export default function FeaturedProjects() {
 
   const cardHeight = "h-[480px] sm:h-[540px] md:h-[620px] xl:h-[660px]";
 
+  const textReveal1 = useTextReveal();
+  const textReveal2 = useTextReveal();
+  const textReveal3 = useTextReveal();
+  const fadeIn = useFadeUpCards();
+
   return (
-    <section className="pt-30 md:pt-30">
+    <section ref={fadeIn} className="pt-30 md:pt-30">
       <div className="mx-auto max-w-[95vw] px-4">
         <div className="grid grid-cols-1 xl:grid-cols-[48%_52%] gap-6 xl:gap-8">
           {/* LEFT CARD */}
@@ -77,7 +84,7 @@ md:px-10 md:py-10
 xl:px-12 xl:py-12"
               >
                 <div className="flex-1 flex items-center pt-4">
-                  <h2
+                  <h2 ref={textReveal1}
                     className="
                 text-[42px]
 sm:text-[56px]
@@ -102,11 +109,11 @@ xl:text-[105px]
                 <div className="border-t border-white/15 pt-8">
                   <div className="flex flex-wrap items-end justify-between gap-6">
                     <div className="flex items-end gap-3 sm:gap-6">
-                      <h3 className="text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold">
+                      <h3 ref={textReveal2} className="text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold">
                         500+
                       </h3>
 
-                      <div className="pb-2">
+                      <div className=" pb-2">
                         <p className="text-white text-sm leading-none">
                           PROJECTS
                         </p>
@@ -117,8 +124,8 @@ xl:text-[105px]
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                      <button className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white flex items-center justify-center">
+                    <div className=" flex items-center gap-3">
+                      <button className=" h-12 w-12 md:h-14 md:w-14 rounded-full bg-white flex items-center justify-center">
                         <ArrowDown size={20} />
                       </button>
 
@@ -137,7 +144,7 @@ text-sm md:text-base rounded-full bg-[#F6C84C] font-semibold text-black"
           </div>
 
           {/* RIGHT CARD */}
-          <div className={`${cardHeight} relative`}>
+          <div className={`${cardHeight}  relative`}>
             <FolderCard variant="right" fill="white" stroke="rgba(0,0,0,.08)">
               <div className="h-full flex flex-col">
                 {/* IMAGE */}

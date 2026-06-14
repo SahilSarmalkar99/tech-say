@@ -5,16 +5,19 @@ import TeamSection from '../components/team/TeamMember'
 import {teams} from "../data/teamMembers"
 import CommonFooter from '../components/CommonFooter'
 import Navbar from '../components/Navbar'
+import useFadeUpCards from '../hooks/useFadeIn'
 
 const Team = () => {
+
+  const fadeIn = useFadeUpCards();
   return (
-    <div>
+    <div ref={fadeIn}>
       <Navbar  visible = {true}/>
         <TeamHero />
         <AboutStory />
 
         {/* team member */}
-         <div className="text-center pt-20">
+         <div className="text-center ">
         <span
           className="
             inline-block
@@ -26,6 +29,8 @@ const Team = () => {
             text-sm
             uppercase
             tracking-[0.2em]
+            text-white
+            fade-card
           "
         >
           Our Team

@@ -1,17 +1,27 @@
+import useFadeUpCards from "../../hooks/useFadeIn";
+import useTextReveal from "../../hooks/useTextReveal";
 import DashedSeparator from "../DashedSeparator";
 
 export default function AboutStory() {
+  const textReveal1 = useTextReveal();
+  const textReveal2 = useTextReveal();
+  const textReveal3 = useTextReveal();
+  const textReveal4 = useTextReveal();
+  const textReveal5 = useTextReveal();
+  const textReveal6 = useTextReveal();
+
+  const fadeIn = useFadeUpCards();
   return (
-    <section className="w-full bg-[#2c1638] text-white py-20">
+    <section ref={fadeIn} className="w-full text-white py-24">
       <div className=" mx-auto px-6">
 
         {/* Story */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-light mb-6">
+        <div className="text-center mb-10 py-24 ">
+          <h2 ref={textReveal1} className="text-3xl md:text-4xl font-light mb-6">
             Our Story
           </h2>
 
-          <p className="max-w-4xl mx-auto text-gray-300 leading-relaxed text-sm md:text-base">
+          <p ref={textReveal2} className="max-w-4xl mx-auto text-gray-300 leading-relaxed text-sm md:text-base">
             We started with a simple goal: helping brands build a meaningful
             digital presence. Through creativity, strategy, and innovation,
             we've transformed ideas into impactful experiences.
@@ -22,12 +32,12 @@ export default function AboutStory() {
         <DashedSeparator />
 
         {/* Question */}
-        <div className="text-center my-10">
-          <h3 className="text-2xl md:text-3xl font-light mb-6">
+        <div className="text-center py-24">
+          <h3 ref={textReveal3} className="text-2xl md:text-3xl font-light mb-6">
             Are We Just Another Social Media Agency?
           </h3>
 
-          <p className="max-w-4xl mx-auto text-gray-300 leading-relaxed text-sm md:text-base">
+          <p ref={textReveal4} className="max-w-4xl mx-auto text-gray-300 leading-relaxed text-sm md:text-base">
             Not really. We focus on building authentic connections between
             brands and audiences through strategy-driven content, storytelling,
             and measurable growth.
@@ -52,7 +62,7 @@ export default function AboutStory() {
           "
         >
           {/* Image */}
-          <div className="h-full">
+          <div className="fade-card h-full">
             <img
               src="/founder.jpg"
               alt="Founder"
@@ -67,11 +77,11 @@ export default function AboutStory() {
 
           {/* Content */}
           <div className="p-8 md:p-12">
-            <h3 className="text-3xl md:text-4xl font-light mb-6">
+            <h3 ref={textReveal5} className="text-3xl md:text-4xl font-light mb-6">
               The Mind Behind It
             </h3>
 
-            <p className="text-gray-300 leading-relaxed">
+            <p ref={textReveal6} className="text-gray-300 leading-relaxed">
               Every great brand begins with a vision. Our founder built this
               agency around the belief that creativity and strategy should work
               together to create memorable digital experiences that drive real

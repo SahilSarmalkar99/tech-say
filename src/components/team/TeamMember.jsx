@@ -1,17 +1,21 @@
+import useFadeUpCards from "../../hooks/useFadeIn";
+import useTextReveal from "../../hooks/useTextReveal";
 
 export default function TeamSection({ team }) {
+  const textReveal = useTextReveal();
+  const fadeIn = useFadeUpCards();
   return (
-    <section className="py-10">
+    <section ref={fadeIn} className="py-10">
       {/* Header */}
       <div className="text-center text-white mb-12">
 
-        <h2 className="mt-6 text-4xl md:text-6xl font-light">
+        <h2 ref={textReveal} className="mt-6 text-4xl md:text-6xl font-light">
           {team.name}
         </h2>
       </div>
 
       {/* Team Video */}
-      <div className="max-w-6xl mx-auto px-4 mb-16">
+      <div className="fade-card max-w-6xl mx-auto px-4 mb-16">
         <video
           autoPlay
           muted
@@ -32,6 +36,7 @@ export default function TeamSection({ team }) {
       {/* Team Members */}
       <div
         className="
+          fade-card
           max-w-7xl
           mx-auto
           px-4
@@ -45,6 +50,7 @@ export default function TeamSection({ team }) {
           <div
             key={member.id}
             className="
+ 
               group
               w-[160px]
               sm:w-[180px]
@@ -91,7 +97,7 @@ export default function TeamSection({ team }) {
                 group-hover:translate-y-0
               "
             >
-              <h3 className="text-lg font-medium">
+              <h3 className="text-lg text-white font-medium">
                 {member.name}
               </h3>
 
