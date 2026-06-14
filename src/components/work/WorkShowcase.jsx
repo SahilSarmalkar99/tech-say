@@ -1,147 +1,278 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../../data/workPortfolio";
-import DashedSeparator from "../DashedSeparator";
 import useFadeUpCards from "../../hooks/useFadeIn";
 
 export default function WorkShowcase() {
-  const categories = Object.keys(portfolioData);
-
-  const [activeCategory, setActiveCategory] = useState("Production");
-
-  const subCategories = Object.keys(portfolioData[activeCategory]);
-
-  const [activeSub, setActiveSub] = useState(subCategories[0]);
-
-  const items = portfolioData[activeCategory][activeSub];
-
   const fadeIn = useFadeUpCards();
 
-  const handleCategory = (category) => {
-    setActiveCategory(category);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeSub, setActiveSub] = useState("All");
 
-    setActiveSub(Object.keys(portfolioData[category])[0]);
+  const categories = ["All", ...Object.keys(portfolioData)];
+
+  const getFilteredItems = () => {
+    let result = [];
+
+    if (activeCategory === "All") {
+      Object.values(portfolioData).forEach((category) => {
+        Object.values(category).forEach((subItems) => {
+          result.push(...subItems);
+        });
+      });
+
+      return result;
+    }
+
+    const categoryData = portfolioData[activeCategory];
+
+    if (!categoryData) return [];
+
+    if (activeSub === "All") {
+      Object.values(categoryData).forEach((subItems) => {
+        result.push(...subItems);
+      });
+
+      return result;
+    }
+
+    return categoryData?.[activeSub] || [];
   };
 
+  const items = getFilteredItems();
+
   return (
-    <section ref={fadeIn} className="bg-[#4b3260] py-16">
-      {/* MAIN FILTERS */}
-      <div className="fade-card flex  flex-wrap justify-center gap-5 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => handleCategory(cat)}
-            className={` relative  px-10 py-4 rounded-full text-white font-medium border border-white/20 bg-white/5 shadow-[0_8px_20px_rgba(255,255,255,0.08),0_10px_30px_rgba(0,0,0,0.4)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(255,255,255,0.12),0_20px_40px_rgba(0,0,0,0.5)] before:absolute  before:inset-[1px] before:rounded-full before:border before:border-white/10
-    ${
-      activeCategory === cat
-        ? `
-          bg-white/15
-          border-white/40
-          shadow-[0_0_20px_rgba(255,255,255,0.15),0_12px_30px_rgba(0,0,0,0.5)]
-          -translate-y-1
-        `
-        : ""
-    }
-  `}
+    <section
+      ref={fadeIn}
+      className=" py-20 lg:py-32"
+    >
+      <div className="max-w-[1700px] mx-auto px-5 md:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-24">
+          {/* LEFT SIDEBAR */}
+          <aside
+            className="
+              lg:sticky
+              lg:top-28
+              self-start
+            "
           >
-            {cat}
-          </button>
-        ))}
-      </div>
+            <h2 className="text-white text-3xl md:text-4xl font-light mb-12">
+              Selected Work
+            </h2>
 
-      <DashedSeparator />
+            <div className="space-y-6">
+  {categories.map((cat) => (
+    <div key={cat}>
+      {/* Category */}
+      <button
+        onClick={() => {
+          setActiveCategory(cat);
+          setActiveSub("All");
+        }}
+        className="
+          flex
+          items-center
+          gap-4
+          text-left
+          group
+        "
+      >
+        <span
+          className={`
+            w-2
+            h-2
+            rounded-full
+            transition-all
+            duration-300
+            ${
+              activeCategory === cat
+                ? "bg-white scale-100"
+                : "bg-white/20 scale-0"
+            }
+          `}
+        />
 
-      {/* SUB FILTERS */}
-      <div className="fade-card flex justify-center flex-wrap gap-4 mb-12">
-        {subCategories.map((sub) => (
+        <span
+          className={`
+            text-xl
+            transition-all
+            duration-300
+            ${
+              activeCategory === cat
+                ? "text-white"
+                : "text-white/40 group-hover:text-white"
+            }
+          `}
+        >
+          {cat}
+        </span>
+      </button>
+
+      {/* Subcategories directly below active category */}
+      {cat !== "All" && activeCategory === cat && (
+        <div className="ml-6 mt-4 border-l border-white/10 pl-5">
           <button
-            key={sub}
-            onClick={() => setActiveSub(sub)}
+            onClick={() => setActiveSub("All")}
             className={`
-        px-5 py-2
-        rounded-full
-        text-white
-        border
-        transition-all
-        duration-300
-
-        ${
-          activeSub === sub
-            ? "border-white bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-            : "border-white/30 hover:border-white/60"
-        }
-      `}
+              block
+              mb-3
+              text-sm
+              transition-all
+              ${
+                activeSub === "All"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white"
+              }
+            `}
           >
-            {sub}
+            All
           </button>
-        ))}
-      </div>
 
-      {/* CONTENT */}
-      <div className="fade-card max-w-6xl mx-auto px-4">
-        <div className="grid gap-8">
-          {items.map((item) => (
-            <div
-              key={item.id}
-              className="
-                relative
-                overflow-hidden
-                rounded-[24px]
-                group
-                cursor-pointer
+          {Object.keys(portfolioData[cat]).map((sub) => (
+            <button
+              key={sub}
+              onClick={() => setActiveSub(sub)}
+              className={`
+                block
+                mb-3
+                text-sm
                 transition-all
-                duration-500
-                hover:-translate-y-2
-              "
+                ${
+                  activeSub === sub
+                    ? "text-white"
+                    : "text-white/40 hover:text-white"
+                }
+              `}
             >
-              <img
-                src={item.thumbnail}
-                alt=""
-                className="
-                  w-full
-                  h-[250px]
-                  md:h-[500px]
-                  object-cover
-                "
-              />
-
-              {/* Glass CTA */}
-             <div
-  className="
-    absolute
-    left-6
-    right-6
-    bottom-6
-
-    rounded-2xl
-
-    bg-white/10
-    backdrop-blur-xl
-
-    py-4
-
-    flex
-    items-center
-    justify-center
-    gap-3
-
-    opacity-0
-    translate-y-8
-
-    transition-all
-    duration-500
-    ease-out
-
-    group-hover:opacity-100
-    group-hover:translate-y-0
-  "
->
-                <span>View Work</span>
-
-                <ArrowUpRight size={16} />
-              </div>
-            </div>
+              {sub}
+            </button>
           ))}
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
+            
+          </aside>
+
+          {/* RIGHT CONTENT */}
+          <div className="space-y-10 md:space-y-14">
+            {items.map((item, index) => (
+              <div
+                key={item.id}
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-[28px]
+                  md:rounded-[36px]
+                  cursor-pointer
+                "
+              >
+                {/* Video */}
+                <video
+                  src={item.video}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  className="
+                    w-full
+                    aspect-video
+                    object-cover
+                    bg-black
+                  "
+                />
+
+                {/* Dark Overlay */}
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-black/20
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-all
+                    duration-500
+                  "
+                />
+
+                {/* Counter */}
+                <div
+                  className="
+                    absolute
+                    top-6
+                    left-6
+                    text-white/80
+                    text-sm
+                    md:text-base
+                  "
+                >
+                  {(index + 1)
+                    .toString()
+                    .padStart(2, "0")}
+                </div>
+
+                {/* Bottom Glass CTA */}
+                <div
+                  className="
+                    absolute
+                    left-4
+                    right-4
+                    md:left-6
+                    md:right-6
+                    bottom-4
+                    md:bottom-6
+
+                    rounded-2xl
+
+                    bg-white/10
+                    backdrop-blur-xl
+
+                    px-5
+                    py-4
+
+                    flex
+                    items-center
+                    justify-between
+
+                    opacity-0
+                    translate-y-8
+
+                    transition-all
+                    duration-500
+
+                    group-hover:opacity-100
+                    group-hover:translate-y-0
+                  "
+                >
+                  <div>
+                    <h3 className="text-white text-lg md:text-xl">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-white/60 text-sm">
+                      {item.category}
+                    </p>
+                  </div>
+
+                  <ArrowUpRight
+                    size={22}
+                    className="text-white"
+                  />
+                </div>
+              </div>
+            ))}
+
+            {items.length === 0 && (
+              <div className="text-center py-20">
+                <h3 className="text-white/60 text-xl">
+                  No projects found.
+                </h3>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
