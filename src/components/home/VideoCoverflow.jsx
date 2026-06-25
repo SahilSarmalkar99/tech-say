@@ -1,25 +1,46 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useTextReveal from "../../hooks/useTextReveal";
 import useFadeUpCards from "../../hooks/useFadeIn";
 
 const videos = [
-  { id: 1, src: "/videos/video1.mp4" },
-  { id: 2, src: "/videos/video2.mp4" },
-  { id: 3, src: "/videos/video3.mp4" },
-  { id: 4, src: "/videos/video4.mp4" },
-  { id: 5, src: "/videos/video5.mp4" },
+  { id: 1, src: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367626/sa1_rnyypa.mp4" },
+  { id: 2, src: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367632/sa2_iqbzef.mp4" },
+  { id: 3, src: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367619/sa3_yem6m3.mp4" },
+  { id: 4, src: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367600/or1_oysbpg.mp4" },
+  { id: 5, src: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367603/or2_asxea7.mp4" },
+  { id: 6, src: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367604/or3_ckukxh.mp4" },
 ];
 
 export default function VideoCoverflow() {
   const [items, setItems] = useState(videos);
+  const videoRefs = useRef({});
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const visibleIds = [
+      items[4]?.id, // left
+      items[3]?.id, // center
+      items[2]?.id, // right
+    ];
+
+    Object.entries(videoRefs.current).forEach(([id, video]) => {
+      if (!video) return;
+
+      if (visibleIds.includes(Number(id))) {
+        video.play().catch(() => { });
+      } else {
+        video.pause();
+      }
+    });
+  }, [items]);
 
   const next = () => {
     setItems((prev) => {
       const arr = [...prev];
       const last = arr.pop();
-
+      setIsAnimating(true);
       return [last, ...arr];
     });
   };
@@ -28,12 +49,14 @@ export default function VideoCoverflow() {
     setItems((prev) => {
       const arr = [...prev];
       const first = arr.shift();
+      setIsAnimating(true);
 
       return [...arr, first];
     });
   };
 
   const slots = [
+    { x: -700, scale: 0.45, rotateY: 45, opacity: 0, zIndex: 0 },
     { x: -550, scale: 0.65, rotateY: 35, opacity: 0.25, zIndex: 10 },
     { x: -280, scale: 0.85, rotateY: 20, opacity: 0.8, zIndex: 20 },
     { x: 0, scale: 1, rotateY: 0, opacity: 1, zIndex: 50 },
@@ -43,7 +66,7 @@ export default function VideoCoverflow() {
 
   const textReveal = useTextReveal();
   const textReveal2 = useTextReveal();
-  const  fadeIn = useFadeUpCards();
+  const fadeIn = useFadeUpCards();
 
   return (
     <section
@@ -96,7 +119,7 @@ export default function VideoCoverflow() {
       </div>
 
       {/* Carousel */}
-      
+
 
       <div
         className="fade-card
@@ -120,6 +143,22 @@ lg:h-[700px]
             <motion.div
               key={item.id}
               layout
+              onAnimationComplete={() => {
+                if (index === 2) {
+                  videoRefs.current.forEach((video, i) => {
+                    if (!video) return;
+
+                    if (i >= 1 && i <= 3) {
+                      video.play().catch(() => { });
+                    } else {
+                      video.pause();
+                    }
+                  });
+
+                  setIsAnimating(false);
+                }
+              }}
+
               animate={{
                 x: slot.x,
                 scale: slot.scale,
@@ -155,11 +194,15 @@ lg:h-[700px]
                 "
               >
                 <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[item.id] = el;
+                  }}
                   src={item.src}
                   muted
                   loop
-                  autoPlay={shouldPlay}
+                  loading="lazy"
                   playsInline
+                  preload="auto"
                   className="w-full h-full object-cover"
                 />
 

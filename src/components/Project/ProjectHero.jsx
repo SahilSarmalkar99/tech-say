@@ -7,6 +7,7 @@ const ProjectHero = () => {
         autoPlay
         muted
         loop
+        loading="lazy"
         playsInline
         className=" absolute inset-0 w-full h-full object-cover object-center " >
         <source src="/hero.mp4" type="video/mp4" />

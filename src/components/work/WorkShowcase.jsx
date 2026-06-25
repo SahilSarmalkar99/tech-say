@@ -175,6 +175,7 @@ export default function WorkShowcase() {
                   src={item.video}
                   muted
                   loop
+                  loading="lazy"
                   autoPlay
                   playsInline
                   className="

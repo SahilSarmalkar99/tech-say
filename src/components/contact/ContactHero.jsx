@@ -6,6 +6,7 @@ const ContactHero = () => {
       <video
         autoPlay
         muted
+        loading="lazy"
         loop
         playsInline
         className=" absolute inset-0 w-full h-full object-cover object-center " >

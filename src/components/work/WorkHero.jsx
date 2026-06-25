@@ -9,6 +9,7 @@ const WorkHero = () => {
         autoPlay
         muted
         loop
+        loading="lazy"
         playsInline
         className="
         fade-card

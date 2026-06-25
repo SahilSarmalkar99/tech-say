@@ -116,63 +116,82 @@ function Card({ card, large = false }) {
   return (
     <div
       className={`
-        relative overflow-hidden rounded-3xl group
-
+        relative overflow-hidden rounded-3xl group cursor-pointer
         ${large ? "h-[350px] md:h-[420px]" : "h-[260px] md:h-[500px]"}
       `}
     >
-      <img
-        src={card.image}
-        alt={card.title}
+      <video
+        src={card.video}
+        autoPlay
+        muted
+        loop
+        playsInline
+        loading="lazy"
         className="
           w-full h-full object-cover
-          transition duration-700
+          transition-transform duration-700
           group-hover:scale-110
         "
       />
 
+      {/* Overlay */}
       <div
         className="
-    absolute
-    left-4
-    right-4
-    bottom-4
-    bg-white/10
-    backdrop-blur-xl
-    rounded-2xl
-    px-5
-    py-4
+          absolute inset-0
+          bg-black/20
+          opacity-0
+          transition-opacity duration-500
+          group-hover:opacity-100
+        "
+      />
 
-    opacity-0
-    translate-y-6
+      {/* Bottom Content */}
+      <div
+        className="
+          absolute
+          left-4
+          right-4
+          bottom-4
+          rounded-2xl
+          px-5
+          py-4
 
-    transition-all
-    duration-500
+          backdrop-blur-xl
+          bg-[#4530508C]
 
-    group-hover:opacity-100
-    group-hover:translate-y-0
-  "
+          opacity-0
+          translate-y-6
+
+          transition-all
+          duration-500
+
+          group-hover:opacity-100
+          group-hover:translate-y-0
+        "
       >
         <div className="flex items-center justify-between">
-          <span>{card.title}</span>
+          <span className="text-white font-medium">
+            {card.title}
+          </span>
 
           <div
             className="
-    h-8 w-8
-    rounded-full
-    bg-white
-    text-black
-    flex items-center justify-center
+              h-10
+              w-10
+              rounded-full
+              bg-white
+              text-black
+              flex items-center justify-center
 
-    scale-75
-    transition-all
-    duration-300
+              scale-75
+              transition-all
+              duration-300
 
-    group-hover:scale-100
-    group-hover:rotate-12
-  "
+              group-hover:scale-100
+              group-hover:rotate-12
+            "
           >
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={18} />
           </div>
         </div>
       </div>

@@ -49,6 +49,7 @@ const fadeIn = useFadeUpCards();
       <div className="relative h-[70vh] min-h-[600px] overflow-hidden border-b border-white/10">
         <video
           autoPlay
+          loading="lazy"
           muted
           loop
           playsInline

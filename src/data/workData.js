@@ -2,38 +2,38 @@ export const workData = {
   Production: [
     {
       id: 1,
-      title: "Ad Films",
-      image: "https://wallpaperaccess.com/full/2665651.jpg",
+      title: "YouTube Videos",
+      video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367587/yt1_qrwmdw.mp4",
       type: "large",
     },
     {
       id: 2,
       title: "YouTube Videos",
-      image: "https://wallpaperaccess.com/full/2665651.jpg",
+      video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367587/yt2_xdvyoj.mp4",
       type: "large",
     },
     {
       id: 3,
-      titlhe: "UGC",
-      image: "https://wallpaperaccess.com/full/2665651.jpg",
+      title: "Ad Film",
+      video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367617/ad1_rldp6s.mp4 ",
       type: "small",
     },
     {
       id: 4,
       title: "UGC",
-      image: "https://wallpaperaccess.com/full/2665651.jpg",
+      video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367614/ugc1_g9spbv.mp4",
       type: "small",
     },
     {
       id: 5,
-      title: "UGC",
-      image: "https://wallpaperaccess.com/full/2665651.jpg",
+      title: "Founder Talk",
+      video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367613/fv1_fuzg6y.mp4",
       type: "small",
     },
     {
       id: 6,
-      title: "UGC",
-      image: "https://wallpaperaccess.com/full/2665651.jpg",
+      title: "Jewellery Video",
+      video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367612/jw2_am3nwo.mp4",
       type: "small",
     },
   ],
@@ -42,7 +42,7 @@ export const workData = {
     {
       id: 1,
       title: "Ad Films",
-      image: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
+      video: "https://i.pinimg.com/1200x/3b/f9/87/3bf987658d68a2ff47689a9141085c8b.jpg",
       type: "large",
     },
     {

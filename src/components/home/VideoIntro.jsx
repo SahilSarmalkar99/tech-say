@@ -27,6 +27,7 @@ const VideoIntro = ({
           autoPlay
           muted
           loop
+          loading="lazy"
           playsInline
           preload="auto"
           className="

@@ -5,20 +5,17 @@ import useFadeUpCards from "../../hooks/useFadeIn";
 const topRow = [
   {
     id: 1,
-    image:
-      "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367588/ugc8_nqpxfo.mp4",
     brand: "Tribalveda",
   },
   {
     id: 2,
-    image:
-      "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367591/ugc3_j88exq.mp4",
     brand: "Sugar.fit",
   },
   {
     id: 3,
-    image:
-      "https://i.pinimg.com/736x/95/35/a7/9535a7659fe5edb528ca82272d518dd9.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367583/ugc5_vraq5c.mp4",
     brand: "Kyari",
   },
 ];
@@ -26,26 +23,22 @@ const topRow = [
 const bottomRow = [
   {
     id: 4,
-    image:
-      "https://i.pinimg.com/736x/ae/ae/48/aeae48bb532ab97e3165056a71cc22d0.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367614/ugc1_g9spbv.mp4",
     brand: "Kyari",
   },
   {
     id: 5,
-    image:
-      "https://i.pinimg.com/736x/36/ea/23/36ea23d6473323af5e202b027bd0a4d2.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367610/ugc2_ul13pi.mp4",
     brand: "Kenia",
   },
   {
     id: 6,
-    image:
-      "https://i.pinimg.com/1200x/3f/97/48/3f9748b244b1076a7e86728c59a203b0.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367614/ugc1_g9spbv.mp4",
     brand: "FreshCon",
   },
   {
     id: 7,
-    image:
-      "https://i.pinimg.com/736x/75/47/90/7547904b84dc4baeddfc8cb8a7342137.jpg",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367583/ugc5_vraq5c.mp4",
     brand: "Ugaoo",
   },
 ];
@@ -81,10 +74,11 @@ export default function ContentSection() {
   );
 }
 
-function ContentCard({ image, brand }) {
+function ContentCard({ video, brand }) {
   return (
     <div
-      className="fade-card
+      className="
+        fade-card
         relative
         overflow-hidden
         rounded-[28px]
@@ -101,28 +95,33 @@ function ContentCard({ image, brand }) {
         cursor-pointer
       "
     >
-      {/* Image */}
-      <img
-        src={image}
-        alt={brand}
+      {/* Video */}
+      <video
+        src={video}
+        autoPlay
+        muted
+        loop
+        loading="lazy"
+        playsInline
+        preload="auto"
         className="
           w-full
           h-full
           object-cover
-          transition-all
+          transition-transform
           duration-700
           ease-out
           group-hover:scale-110
         "
       />
 
-      {/* Dark Gradient */}
+      {/* Gradient */}
       <div
         className="
           absolute inset-0
           bg-gradient-to-t
-          from-black/40
-          via-transparent
+          from-black/50
+          via-black/10
           to-transparent
         "
       />
@@ -130,60 +129,62 @@ function ContentCard({ image, brand }) {
       {/* Glass Label */}
       <div
         className="
-    absolute
-    left-4
-    right-4
-    bottom-4
+          absolute
+          left-4
+          right-4
+          bottom-4
 
-    flex
-    items-center
-    justify-between
+          flex
+          items-center
+          justify-between
 
-    px-5
-    py-4
+          px-5
+          py-4
 
-    rounded-2xl
-    border border-white/10
+          rounded-2xl
+          border border-white/10
 
-    bg-white/10
-    backdrop-blur-xl
+          bg-[#4530508C]
+          backdrop-blur-xl
 
-    opacity-0
-    translate-y-6
+          opacity-0
+          translate-y-6
 
-    transition-all
-    duration-500
-    ease-out
+          transition-all
+          duration-500
+          ease-out
 
-    group-hover:opacity-100
-    group-hover:translate-y-0
-  "
+          group-hover:opacity-100
+          group-hover:translate-y-0
+        "
       >
-        <span className="font-medium text-sm md:text-base">{brand}</span>
+        <span className="font-medium text-sm md:text-base text-white">
+          {brand}
+        </span>
 
         <div
           className="
-      h-8
-      w-8
-      rounded-full
+            h-9
+            w-9
+            rounded-full
 
-      bg-white
-      text-black
+            bg-white
+            text-black
 
-      flex
-      items-center
-      justify-center
+            flex
+            items-center
+            justify-center
 
-      scale-75
+            scale-75
 
-      transition-all
-      duration-300
+            transition-all
+            duration-300
 
-      group-hover:scale-100
-      group-hover:rotate-45
-    "
+            group-hover:scale-100
+            group-hover:rotate-45
+          "
         >
-          <ArrowUpRight size={16} />
+          <ArrowUpRight size={18} />
         </div>
       </div>
     </div>

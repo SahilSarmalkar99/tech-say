@@ -20,6 +20,7 @@ export default function TeamSection({ team }) {
           autoPlay
           muted
           loop
+          loading="lazy"
           playsInline
           className="
             w-full

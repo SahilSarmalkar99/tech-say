@@ -256,6 +256,7 @@ useLayoutEffect(() => {
           autoPlay
           muted
           loop
+          loading="lazy"
           playsInline
           className="w-full h-full object-cover bg-black"
         />
@@ -309,6 +310,7 @@ useLayoutEffect(() => {
           autoPlay
           muted
           loop
+          loading="lazy"
           playsInline
           className="w-full h-full object-cover bg-black"
         />

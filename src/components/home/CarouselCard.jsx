@@ -84,6 +84,7 @@ export default function CarouselCard({
           ref={videoRef}
           muted
           loop
+          loading="lazy"
           playsInline
           preload="metadata"
           className="w-full h-full object-cover"

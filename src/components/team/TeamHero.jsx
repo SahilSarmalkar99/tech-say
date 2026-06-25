@@ -7,6 +7,7 @@ const TeamHero = () => {
         autoPlay
         muted
         loop
+        loading="lazy"
         playsInline
         className="
           absolute

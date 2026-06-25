@@ -187,6 +187,7 @@ function Card({ image, video, className }) {
         <video
           autoPlay
           muted
+          loading="lazy"
           loop
           playsInline
           className="
