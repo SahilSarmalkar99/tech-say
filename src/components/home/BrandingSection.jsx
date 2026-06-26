@@ -56,7 +56,7 @@ export default function BrandingSection() {
               leading-tight
             "
           >
-            Designing Identities That Leave
+            Designing Identities That Leave{" "}
             <br className="hidden sm:block" />
             A Lasting Impression
           </h2>
