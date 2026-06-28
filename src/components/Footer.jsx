@@ -11,7 +11,7 @@ export default function Footer() {
         className="
           relative
           overflow-hidden
-          bg-[#04020D]
+
           min-h-[700px]
           px-6
           md:px-12
@@ -29,8 +29,8 @@ export default function Footer() {
           <div
             className="
               absolute
-              w-[800px]
-              h-[800px]
+              w-[500px]
+              h-[300px]
               rounded-full
               blur-[180px]
               opacity-40
