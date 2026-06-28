@@ -33,7 +33,7 @@ const bottomRow = [
   },
   {
     id: 6,
-    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367614/ugc1_g9spbv.mp4",
+    video: "https://res.cloudinary.com/dor2qddak/video/upload/v1782367592/ugc9_qckw8l.mp4",
     brand: "FreshCon",
   },
   {
